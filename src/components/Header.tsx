@@ -3,6 +3,9 @@ import Link from "next/link"
 import { useEffect, useState } from 'react'
 import { BsSearch, BsBellFill } from 'react-icons/bs'
 
+import logo from '@/assets/netflix_logo.svg'
+import avatar from '@/assets/avatar.png'
+
 
 const Header = () => {
 
@@ -28,8 +31,9 @@ const Header = () => {
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <Image 
-          src={''}
+          src={logo}
           alt="nexflix_logo"
+          height={25}
           className="cursor-pointer object-cover"
         />
 
@@ -49,8 +53,9 @@ const Header = () => {
 
         <Link href={"/account"}>
           <Image 
-            src={''}
+            src={avatar}
             alt="profile_avatar"
+            height={40}
             className="cursor-pointer rounded"
           />
         </Link>
