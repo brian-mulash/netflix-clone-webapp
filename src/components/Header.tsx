@@ -5,11 +5,14 @@ import { BsSearch, BsBellFill } from 'react-icons/bs'
 
 import logo from '@/assets/netflix_logo.svg'
 import avatar from '@/assets/avatar.png'
+import useAuth from "../../hooks/useAuth"
 
 
 const Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false)
+
+  const { logout } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +60,7 @@ const Header = () => {
             alt="profile_avatar"
             height={40}
             className="cursor-pointer rounded"
+            onClick={logout}
           />
         </Link>
       </div>

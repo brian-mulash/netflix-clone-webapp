@@ -1,15 +1,17 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Head from 'next/head'
 
 import Header from '@/components/Header'
 import Row from '@/components/Row'
+import Modal from '@/components/Modal'
 import Banner from '@/components/Banner'
 import requests from '../../utils/requests'
 import { Movie } from '../../typings'
+import useAuth from '../../hooks/useAuth'
+import { useState } from 'react'
+import { useRecoilValue } from 'recoil'
+import { modalState } from '../../atoms/modalAtom'
 
-
-const inter = Inter({ subsets: ['latin'] })
 
 interface Props {
   netflixOriginals: Movie[]
@@ -24,6 +26,15 @@ interface Props {
 }
 
 export default function Home({ netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horrorMovies, romanceMovies, documentaries }: Props) {
+
+  const { logout, loading } = useAuth()
+  const showModal = useRecoilValue(modalState)
+  //const [showModal, setShowModal] = useState(false)
+
+  if(loading) {
+    return null
+  }
+
   return (
     <div className='relative h-screen bg-gradient-to-b lg:h-[140vh]'>
       <Head>
@@ -48,7 +59,7 @@ export default function Home({ netflixOriginals, trendingNow, topRated, actionMo
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main> 
-      {/* modal */}
+      { showModal && <Modal/> }
     </div>
   )
 }
