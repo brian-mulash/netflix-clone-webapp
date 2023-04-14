@@ -102,17 +102,17 @@ const Modal = () => {
               <p className='w-5/6'>{movie?.overview}</p>
               <div className='flex flex-col space-y-3 text-sm'>
                 <div>
-                  <span className='text-[gray]'>Genres:</span>
+                  <span className='text-[gray]'>Genres: </span>
                   {genres.map((genre) => genre.name).join(',  ')}
                 </div>
 
                 <div>
-                  <span className='text-[gray]'>Original language</span>
+                  <span className='text-[gray]'>Original lang: </span>
                   {movie?.original_language}
                 </div>
 
                 <div>
-                  <span className='text-[gray]'>Total votes:</span>
+                  <span className='text-[gray]'>Total votes: </span>
                   {movie?.vote_count}
                 </div>
               </div>
